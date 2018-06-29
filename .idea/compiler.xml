@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SSHPro_Dao" />
+        <module name="SSHPro_Domain" />
+        <module name="SSHPro_Exception" />
+        <module name="SSHPro_Service" />
+        <module name="SSHPro_Utils" />
+        <module name="SSHPro_Web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="SSHPro" target="1.8" />
+      <module name="SSHPro_Dao" target="1.8" />
+      <module name="SSHPro_Domain" target="1.8" />
+      <module name="SSHPro_Exception" target="1.8" />
+      <module name="SSHPro_Service" target="1.8" />
+      <module name="SSHPro_Utils" target="1.8" />
+      <module name="SSHPro_Web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>SSHPro</artifactId>
+        <groupId>com.itheima.jk</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../SSHPro/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>SSHPro_Web</artifactId>
+    <packaging>war</packaging>
+
+    <build>
+        <finalName>SSHPro_Web</finalName>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.itheima.jk</groupId>
+            <artifactId>SSHPro_Service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
+
+</project>

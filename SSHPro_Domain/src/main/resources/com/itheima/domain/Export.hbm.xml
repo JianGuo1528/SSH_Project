@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.itheima.domain">
+	<!-- 配置类的映射 -->
+	<class name="Export" table="export_c" dynamic-update="true" dynamic-insert="true" >
+		<!-- 1.配置主键生成策略 -->
+		<id name="id" column="EXPORT_ID">
+			<generator class="org.hibernate.id.UUIDGenerator"/>
+		</id>
+		
+		<!-- 2.配置其他属性 -->
+		<property name="inputDate" column="INPUT_DATE"/>
+		<property name="contractIds" column="CONTRACT_IDS"/>
+		<property name="customerContract" column="CUSTOMER_CONTRACT"/>
+		<property name="lcno" column="LCNO"/>
+		<property name="consignee" column="CONSIGNEE"/>
+		<property name="marks" column="MARKS"/>
+		<property name="shipmentPort" column="SHIPMENT_PORT"/>
+		<property name="destinationPort" column="DESTINATION_PORT"/>
+		<property name="transportMode" column="TRANSPORT_MODE"/>
+		<property name="priceCondition" column="PRICE_CONDITION"/>
+		<property name="remark" column="REMARK"/>
+		<property name="boxNums" column="BOX_NUMS"/>
+		<property name="grossWeights" column="GROSS_WEIGHTS"/>
+		<property name="measurements" column="MEASUREMENTS"/>
+		<property name="state" column="STATE"/>
+
+        <property name="createBy" column="CREATE_BY"/>
+        <property name="createDept" column="CREATE_DEPT"/>
+        <property name="createTime" column="CREATE_TIME"/>
+		
+		<!-- 3.配置对象关联关系； -->
+		<set name="exportProducts" cascade="all" inverse="true" order-by="ORDER_NO">
+			<key column="EXPORT_ID"/>
+			<one-to-many class="ExportProduct"/>
+		</set>
+	</class>
+
+</hibernate-mapping>

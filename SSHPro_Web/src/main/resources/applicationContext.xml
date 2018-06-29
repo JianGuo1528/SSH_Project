@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--配置连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql:///jk2601?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"/>
+        <property name="username" value="root"/>
+        <property name="password" value="1022"/>
+
+        <!-- 配置单个连接最长等待时间 -->
+        <property name="maxWait" value="60000"/>
+        <!-- 间隔10分钟检查所有连接是否需要关闭或创建 -->
+        <property name="timeBetweenEvictionRunsMillis" value="600000"/>
+        <!-- 配置最小生存的时间：5分钟 -->
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--<property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">com.itheima.dialect.MyDialect</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+
+                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+            </props>
+        </property>
+
+        <property name="mappingResources">
+            <list>
+                <value>com/itheima/domain/Dept.hbm.xml</value>
+                <value>com/itheima/domain/User.hbm.xml</value>
+                <value>com/itheima/domain/Userinfo.hbm.xml</value>
+                <value>com/itheima/domain/Role.hbm.xml</value>
+                <value>com/itheima/domain/Module.hbm.xml</value>
+
+                <value>com/itheima/domain/Contract.hbm.xml</value>
+                <value>com/itheima/domain/ContractProduct.hbm.xml</value>
+                <value>com/itheima/domain/Factory.hbm.xml</value>
+                <value>com/itheima/domain/ExtCproduct.hbm.xml</value>
+
+                <value>com/itheima/domain/Export.hbm.xml</value>
+                <value>com/itheima/domain/ExtEproduct.hbm.xml</value>
+                <value>com/itheima/domain/ExportProduct.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--Shiro安全框架产生代理子类的方法: 使用cglib方式-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!--配置事物管理器-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <!--&lt;!&ndash;配置通知类&ndash;&gt;
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    &lt;!&ndash;配置切面类&ndash;&gt;
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* com.itheima.service.*ServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+    </aop:config>-->
+
+    <import resource="applicationContext-action.xml"/>
+    <import resource="applicationContext-service.xml"/>
+    <import resource="applicationContext-dao.xml"/>
+    <import resource="applicationContext-shiro.xml"/>
+</beans>

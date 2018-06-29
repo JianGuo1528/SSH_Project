@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SSHPro/SSHPro.iml" filepath="$PROJECT_DIR$/SSHPro/SSHPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSHPro_Dao/SSHPro_Dao.iml" filepath="$PROJECT_DIR$/SSHPro_Dao/SSHPro_Dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSHPro_Domain/SSHPro_Domain.iml" filepath="$PROJECT_DIR$/SSHPro_Domain/SSHPro_Domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSHPro_Exception/SSHPro_Exception.iml" filepath="$PROJECT_DIR$/SSHPro_Exception/SSHPro_Exception.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSHPro_Service/SSHPro_Service.iml" filepath="$PROJECT_DIR$/SSHPro_Service/SSHPro_Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSHPro_Utils/SSHPro_Utils.iml" filepath="$PROJECT_DIR$/SSHPro_Utils/SSHPro_Utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSHPro_Web/SSHPro_Web.iml" filepath="$PROJECT_DIR$/SSHPro_Web/SSHPro_Web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SSH_Project.iml" filepath="$PROJECT_DIR$/.idea/SSH_Project.iml" />
+    </modules>
+  </component>
+</project>

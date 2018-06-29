@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--service-->
+    <bean id="deptService" class="com.itheima.service.DeptServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="userService" class="com.itheima.service.UserServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="roleService" class="com.itheima.service.RoleServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="moduleService" class="com.itheima.service.ModuleServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="contractService" class="com.itheima.service.ContractServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="contractProductService" class="com.itheima.service.ContractProductServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+    <bean id="extCproductService" class="com.itheima.service.ExtCproductServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="factoryService" class="com.itheima.service.FactoryServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="exportService" class="com.itheima.service.ExportServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="exportProductService" class="com.itheima.service.ExportProductServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+
+    <bean id="extEproductService" class="com.itheima.service.ExtEproductServiceImpl">
+        <property name="baseDao" ref="baseDao"/>
+    </bean>
+</beans>

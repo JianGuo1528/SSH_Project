@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="loginAction" class="com.itheima.action.LoginAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean id="homeAction" class="com.itheima.action.HomeAction" scope="prototype"/>
+    <bean id="deptAction" class="com.itheima.action.sysadmin.DeptAction" scope="prototype">
+        <property name="deptService" ref="deptService"/>
+    </bean>
+
+    <bean id="userAction" class="com.itheima.action.sysadmin.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="deptService" ref="deptService"/>
+        <property name="roleService" ref="roleService"/>
+    </bean>
+
+    <bean id="roleAction" class="com.itheima.action.sysadmin.RoleAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="roleService" ref="roleService"/>
+        <property name="moduleService" ref="moduleService"/>
+    </bean>
+
+    <bean id="moduleAction" class="com.itheima.action.sysadmin.ModuleAction" scope="prototype">
+        <property name="moduleService" ref="moduleService"/>
+    </bean>
+
+    <!-- 货运管理 -->
+    <bean id="contractAction" class="com.itheima.action.cargo.ContractAction" scope="prototype">
+        <property name="contractService" ref="contractService"/>
+    </bean>
+    <bean id="contractProductAction" class="com.itheima.action.cargo.ContractProductAction" scope="prototype">
+        <property name="contractProductService" ref="contractProductService"/>
+        <property name="factoryService" ref="factoryService"/>
+    </bean>
+    <bean id="extCproductAction" class="com.itheima.action.cargo.ExtCproductAction" scope="prototype">
+        <property name="extCproductService" ref="extCproductService"/>
+        <property name="factoryService" ref="factoryService"/>
+    </bean>
+
+    <!-- 出货表 -->
+    <bean id="outProductAction" class="com.itheima.action.cargo.OutProductAction" scope="prototype">
+        <property name="contractProductService" ref="contractProductService"/>
+    </bean>
+
+    <!-- 报运 -->
+    <bean id="exportAction" class="com.itheima.action.cargo.ExportAction" scope="prototype">
+        <property name="exportService" ref="exportService"/>
+        <property name="contractService" ref="contractService"/>
+    </bean>
+
+</beans>

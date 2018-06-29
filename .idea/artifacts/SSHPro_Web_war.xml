@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SSHPro_Web:war">
+    <output-path>$PROJECT_DIR$/SSHPro_Web/target</output-path>
+    <root id="archive" name="SSHPro_Web.war">
+      <element id="artifact" artifact-name="SSHPro_Web:war exploded" />
+    </root>
+  </artifact>
+</component>

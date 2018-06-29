@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.itheima.domain">
+   <class name="Dept" table="dept_p">
+      <id name="id" column="DEPT_ID">
+         <generator class="org.hibernate.id.UUIDGenerator"/>
+      </id>
+      <property name="deptName" column="DEPT_NAME"/>
+      <property name="state" column="STATE"/>
+     
+      <!-- 自关联  子部门与父部门     多对一 -->
+      <many-to-one name="parent" class="Dept" column="PARENT_ID"/>
+      
+      <!-- private Set<User> users  = new HashSet<User>(0);//部门与用户    一对多 -->
+      <set name="users">
+         <key column="DEPT_ID"/>
+         <one-to-many class="User"/>
+      </set>
+   </class>
+</hibernate-mapping>
